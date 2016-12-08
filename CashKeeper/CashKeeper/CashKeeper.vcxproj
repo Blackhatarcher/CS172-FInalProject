@@ -145,11 +145,21 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Account.h" />
+    <ClInclude Include="BankRecord.h" />
+    <ClInclude Include="Catagory.h" />
+    <ClInclude Include="PurchaseRecord.h" />
+    <ClInclude Include="Record.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Account.cpp" />
+    <ClCompile Include="BankRecord.cpp" />
     <ClCompile Include="CashKeeper.cpp" />
+    <ClCompile Include="Catagory.cpp" />
+    <ClCompile Include="PurchaseRecord.cpp" />
+    <ClCompile Include="Record.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
