@@ -13,7 +13,7 @@ Account::Account(double b, string n) {
 	name = n;
 	balance = b;
 }
-
+// will rewrite the coresponding file with the contents of records
 Account::~Account() {
 	
 }
