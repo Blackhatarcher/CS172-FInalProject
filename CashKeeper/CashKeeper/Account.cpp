@@ -83,12 +83,12 @@ void Account:: update() {
 				}
 			}
 			//now I have a vector full of strings
-			
 			if (thestring.substr(0,0) == "0"){
 				//make record class
 				string s = temp_v.at(1);// for some reason if I try to nest this operation inside the constructor I get compiler errors
 				double thing = stod(s);// this will at least compile
 				Record rec(temp_v.at(0),thing, temp_v.at(2));
+				records.push_back(rec);
 			}
 			if (thestring.substr(0, 0) == "1") {
 				//make purchaserecord class
@@ -97,8 +97,9 @@ void Account:: update() {
 				string s2 = temp_v.at(3);
 				Catagory cat(s2);
 				PurchaseRecord rec(temp_v.at(0), thing, temp_v.at(2), cat);
+				records.push_back(rec);
 			}
-			else {
+			if (thestring.substr(0, 0) == "2") {
 				//make bankrecord class
 				string s1 = temp_v.at(1);
 				double thing1 = stod(s1);
@@ -110,8 +111,8 @@ void Account:: update() {
 				double thing3 = stod(s3);
 
 				BankRecord rec(temp_v.at(0), thing1, temp_v.at(2),thing2, thing3);
+				records.push_back(rec);
 			}
-			records.push_back(will_be_added);
 		}
 	}
 	input.close();
