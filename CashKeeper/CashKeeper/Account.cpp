@@ -37,10 +37,9 @@ Account::~Account() {
 	//didn't use the new key ward so I think the vector records get taken care of automatically
 	//no need to delete it
 
-
 	ofstream output(name + "balance" + ".txt"); // again not caring if the file gets deleted
 	output << balance;
-
+	output.close();
 }
 //returns balance
 double Account:: getBalance() {
@@ -71,7 +70,7 @@ void Account:: update() {
 		while (!input.eof())// will loop through whole file
 		{
 			input >> thestring;
-
+			//create a pointer to a record object
 			vector<string> temp_v; // this vector will hold a bunch of strings that will be used later to fill constructor parameters
 			//look at the first character in temp_string and use it to determine what sort of record to construct
 			
@@ -99,7 +98,7 @@ void Account:: update() {
 				Catagory cat(s2);
 				PurchaseRecord rec(temp_v.at(0), thing, temp_v.at(2), cat);
 			}
-			if (thestring.substr(0, 0) == "2") {
+			else {
 				//make bankrecord class
 				string s1 = temp_v.at(1);
 				double thing1 = stod(s1);
@@ -112,6 +111,7 @@ void Account:: update() {
 
 				BankRecord rec(temp_v.at(0), thing1, temp_v.at(2),thing2, thing3);
 			}
+			records.push_back(will_be_added);
 		}
 	}
 	input.close();
