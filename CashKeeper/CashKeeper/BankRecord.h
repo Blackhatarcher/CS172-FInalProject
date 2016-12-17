@@ -10,9 +10,9 @@ protected:
 	double final_balance;
 public:
 	BankRecord();
-	BankRecord(double a, string d, double i, double f);
+	BankRecord(double a, string d, string s, double i, double f);
 	~BankRecord();
 	string getString();
-
+	string getRecord();
 };
 

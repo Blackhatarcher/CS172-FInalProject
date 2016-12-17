@@ -8,8 +8,10 @@ protected:
 	Catagory catagory;
 public:
 	PurchaseRecord();
-	PurchaseRecord(Catagory c, string d, double a);
+	PurchaseRecord( string d, double a, string s, Catagory c);
 	~PurchaseRecord();
 	string getCatagory();
+	string getString();
+	string getRecord();
 };
 

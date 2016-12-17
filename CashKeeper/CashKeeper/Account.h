@@ -14,7 +14,7 @@ protected:
 
 public:
 	Account();
-	Account(double b, string n);
+	Account(string n);
 	~Account();
 	double getBalance();
 	void changeBalance(double x);
