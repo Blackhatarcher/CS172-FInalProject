@@ -17,7 +17,7 @@ public:
 	Account(double b, string n);
 	~Account();
 	double getBalance();
-	void changeBalance();
+	void changeBalance(double x);
 	string getName();
 	void transfer(double x, Account a);
 	void update();
