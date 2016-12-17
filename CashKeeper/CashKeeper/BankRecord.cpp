@@ -12,7 +12,7 @@ BankRecord::BankRecord()
 {
 
 }
-BankRecord::BankRecord(double a, string d, string s, double i, double f) {
+BankRecord::BankRecord(string d, double a, string s, double i, double f) {
 	amount = a;
 	date = d;
 	initial_balance = i;

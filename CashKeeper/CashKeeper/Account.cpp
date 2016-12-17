@@ -1,7 +1,11 @@
 #include "stdafx.h"
 #include "Account.h"
+#include "PurchaseRecord.h"
+#include "BankRecord.h"
 #include <iostream>
 #include <fstream>
+#include <string>
+
 
 //defualt account constructor that makes an account with a name of "account" and balance 0
 Account::Account() {
@@ -71,21 +75,42 @@ void Account:: update() {
 			vector<string> temp_v; // this vector will hold a bunch of strings that will be used later to fill constructor parameters
 			//look at the first character in temp_string and use it to determine what sort of record to construct
 			
-			string temp_string = thestring.substr(1);// this removes  the 0 1 or 2 
+			string temp_string = thestring.substr(2);// this removes  the 0 1 or 2 and the space
 			//gonna pull out indivigual substrings and add them to temp_v
 			for (int i = 0; i < temp_string.length(); i++) {
-
+				if (temp_string.substr(i, i) == " ") {
+					temp_v.push_back(temp_string.substr(0, i-1));
+					temp_string = temp_string.substr(i + 1);
+				}
 			}
+			//now I have a vector full of strings
 			
 			if (thestring.substr(0,0) == "0"){
 				//make record class
-
+				string s = temp_v.at(1);// for some reason if I try to nest this operation inside the constructor I get compiler errors
+				double thing = stod(s);// this will at least compile
+				Record rec(temp_v.at(0),thing, temp_v.at(2));
 			}
 			if (thestring.substr(0, 0) == "1") {
 				//make purchaserecord class
+				string s = temp_v.at(1);// for some reason if I try to nest this operation inside the constructor I get compiler errors
+				double thing = stod(s);// this will at least compile
+				string s2 = temp_v.at(3);
+				Catagory cat(s2);
+				PurchaseRecord rec(temp_v.at(0), thing, temp_v.at(2), cat);
 			}
 			if (thestring.substr(0, 0) == "2") {
 				//make bankrecord class
+				string s1 = temp_v.at(1);
+				double thing1 = stod(s1);
+
+				string s2 = temp_v.at(3);
+				double thing2 = stod(s2);
+
+				string s3 = temp_v.at(4);
+				double thing3 = stod(s3);
+
+				BankRecord rec(temp_v.at(0), thing1, temp_v.at(2),thing2, thing3);
 			}
 		}
 	}
